@@ -5,24 +5,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tính tổng số lẻ từ 1 đến n</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <h1>Tính tổng số lẻ từ 1 đến n</h1>
-    <input type="number" id="n" placeholder="Nhập n">
-    <button onclick="tinhTongLe()">Tính</button>
-    <p id="result"></p>
+    <header>
+        <h1>Tính tổng số lẻ từ 1 đến n</h1>
+    </header>
+    <main>
+        <input type="number" id="n" placeholder="Nhập n">
+        <button onclick="tinhTongLe()">Tính</button>
+        <p id="result"></p>
 
-    <script>
-        function tinhTongLe() {
-            const n = parseInt(document.getElementById('n').value);
-            let tong = 0;
-            for (let i = 1; i <= n; i += 2) {
-                tong += i;
+        <script>
+            function tinhTongLe() {
+                const n = parseInt(document.getElementById('n').value);
+                let tong = 0;
+                for (let i = 1; i <= n; i += 2) {
+                    tong += i;
+                }
+                document.getElementById('result').innerText = "Tổng số lẻ từ 1 đến " + n + " là: " + tong;
             }
-            document.getElementById('result').innerText = "Tổng số lẻ từ 1 đến " + n + " là: " + tong;
-        }
-    </script>
+        </script>
+        <nav>
+            <ul>
+                <li><a href="index.html">Về Trang Chủ</a></li>
+                <li><a href="tinh_tong.html">Tính Tổng</a></li>
+                <li><a href="tinh_tong_chan.html">Tính Tổng Chẵn</a></li>
+                <li><a href="kiem_tra_so_nguyen_to.html">Kiểm Tra Số Nguyên Tố</a></li>
+                <li><a href="tim_ucln.html">Tìm Ước Chung Lớn Nhất</a></li>
+            </ul>
+        </nav>
+    </main>
 </body>
 
 </html>
