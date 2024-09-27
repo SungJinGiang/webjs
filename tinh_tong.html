@@ -4,23 +4,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trang của Trường Giang</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Tính tổng từ 1 đến n</title>
 </head>
 
 <body>
-    <header>
-        <h1>Chào Mừng Đến Với Trang Web Của Trường Giang</h1>
-    </header>
-    <main>
-        <nav>
-            <ul>
-                <li><a href="tinhtoan.html">Tính Tổng Hiệu Tích Thương</a></li>
-                <li><a href="giaiptbac1.html">Giải Phương Trình Bậc Nhất</a></li>
-                <li><a href="dateofmonth.html">Tính Số Ngày Của Tháng</a></li>
-            </ul>
-        </nav>
-    </main>
+    <h1>Tính tổng từ 1 đến n</h1>
+    <input type="number" id="n" placeholder="Nhập n">
+    <button onclick="tinhTong()">Tính</button>
+    <p id="result"></p>
+
+    <script>
+        function tinhTong() {
+            const n = parseInt(document.getElementById('n').value);
+            let tong = 0;
+            for (let i = 1; i <= n; i++) {
+                tong += i;
+            }
+            document.getElementById('result').innerText = "Tổng từ 1 đến " + n + " là: " + tong;
+        }
+    </script>
+    <p><a href="tinh_tong_chan.html">Tính tổng số chẵn</a></p>
+    <p><a href="tinh_tong_le.html">Tính tổng số lẻ</a></p>
+    <p><a href="kiem_tra_so_nguyen_to.html">Kiểm tra số nguyên tố</a></p>
+    <p><a href="tim_ucln.html">Tìm UCLN</a></p>
 </body>
 
 </html>

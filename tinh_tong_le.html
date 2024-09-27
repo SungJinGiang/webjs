@@ -1,30 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Tính ngày của tháng </title>
+    <title>Tính tổng số lẻ từ 1 đến n</title>
 </head>
 
 <body>
-    <nav>
-        <a href="index.html">Trang chủ</a>
-    </nav>
-    <h2>Tính ngày của tháng </h2>
-    <input type="number" id="month" placeholder="Month (1-12)">
-    <input type="number" id="year" placeholder="Year" value="2024">
-    <button onclick="calculateDays()">Tính</button>
-    <p id="days"></p>
+    <h1>Tính tổng số lẻ từ 1 đến n</h1>
+    <input type="number" id="n" placeholder="Nhập n">
+    <button onclick="tinhTongLe()">Tính</button>
+    <p id="result"></p>
+
     <script>
-        function calculateDays() {
-            let month = parseInt(document.getElementById("month").value);
-            let year = parseInt(document.getElementById("year").value);
-            let days = new Date(year, month, 0).getDate();
-            document.getElementById("days").innerHTML = "Days: " + days;
+        function tinhTongLe() {
+            const n = parseInt(document.getElementById('n').value);
+            let tong = 0;
+            for (let i = 1; i <= n; i += 2) {
+                tong += i;
+            }
+            document.getElementById('result').innerText = "Tổng số lẻ từ 1 đến " + n + " là: " + tong;
         }
     </script>
+    <p><a href="tinh_tong.html">Tính tổng từ 1 đến n</a></p>
+    <p><a href="tinh_tong_chan.html">Tính tổng số chẵn</a></p>
+    <p><a href="kiem_tra_so_nguyen_to.html">Kiểm tra số nguyên tố</a></p>
+    <p><a href="tim_ucln.html">Tìm UCLN</a></p>
 </body>
 
 </html>

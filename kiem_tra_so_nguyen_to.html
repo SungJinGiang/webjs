@@ -4,41 +4,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Giải Phương Trình Bậc Nhất</title>
+    <title>Kiểm tra số nguyên tố</title>
 </head>
 
 <body>
-    <nav>
-        <a href="index.html">Trang chủ</a>
-    </nav>
-    <h1>Giải Phương Trình Bậc Nhất</h1>
-    <p>Nhập vào các hệ số a và b của phương trình ax + b = 0:</p>
-    <input type="number" id="a" placeholder="Hệ số a">x +
-    <input type="number" id="b" placeholder="Hệ số b">
-    <button onclick="solveEquation()">Giải</button>
-    <h2>Kết quả: <span id="result"></span></h2>
+    <h1>Kiểm tra số nguyên tố</h1>
+    <input type="number" id="n" placeholder="Nhập n">
+    <button onclick="kiemTraSoNguyenTo()">Kiểm tra</button>
+    <p id="result"></p>
 
     <script>
-        function solveEquation() {
-            const a = parseFloat(document.getElementById("a").value);
-            const b = parseFloat(document.getElementById("b").value);
-            let result;
-
-            if (a === 0) {
-                if (b === 0) {
-                    result = "Phương trình vô số nghiệm.";
-                } else {
-                    result = "Phương trình vô nghiệm.";
-                }
-            } else {
-                const x = -b / a;
-                result = `Nghiệm của phương trình là: x = ${x}`;
+        function kiemTraSoNguyenTo() {
+            const n = parseInt(document.getElementById('n').value);
+            if (isNaN(n) || n < 2) {
+                document.getElementById('result').innerText = n + " không phải là số nguyên tố.";
+                return;
             }
-
-            document.getElementById("result").innerText = result;
+            if (n === 2) {
+                document.getElementById('result').innerText = n + " là số nguyên tố.";
+                return;
+            }
+            if (n % 2 === 0) {
+                document.getElementById('result').innerText = n + " không phải là số nguyên tố.";
+                return;
+            }
+            for (let i = 3; i <= Math.sqrt(n); i += 2) {
+                if (n % i === 0) {
+                    document.getElementById('result').innerText = n + " không phải là số nguyên tố.";
+                    return;
+                }
+            }
+            document.getElementById('result').innerText = n + " là số nguyên tố.";
         }
     </script>
+    <p><a href="tinh_tong.html">Tính tổng từ 1 đến n</a></p>
+    <p><a href="tinh_tong_chan.html">Tính tổng số chẵn</a></p>
+    <p><a href="tinh_tong_le.html">Tính tổng số lẻ</a></p>
+    <p><a href="tim_ucln.html">Tìm UCLN</a></p>
 </body>
 
 </html>

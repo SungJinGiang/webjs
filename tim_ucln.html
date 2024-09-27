@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tìm UCLN</title>
+</head>
+
+<body>
+    <h1>Tìm UCLN của 2 số a và b</h1>
+    <input type="number" id="a" placeholder="Nhập a">
+    <input type="number" id="b" placeholder="Nhập b">
+    <button onclick="tinhUCLN()">Tính UCLN</button>
+    <p id="result"></p>
+
+    <script>
+        function gcd(a, b) {
+            while (b !== 0) {
+                let temp = b;
+                b = a % b;
+                a = temp;
+            }
+            return a;
+        }
+
+        function tinhUCLN() {
+            const a = parseInt(document.getElementById('a').value);
+            const b = parseInt(document.getElementById('b').value);
+            const ucln = gcd(a, b);
+            document.getElementById('result').innerText = "UCLN của " + a + " và " + b + " là: " + ucln;
+        }
+    </script>
+    <p><a href="tinh_tong.html">Tính tổng từ 1 đến n</a></p>
+    <p><a href="tinh_tong_chan.html">Tính tổng số chẵn</a></p>
+    <p><a href="tinh_tong_le.html">Tính tổng số lẻ</a></p>
+    <p><a href="kiem_tra_so_nguyen_to.html">Kiểm tra số nguyên tố</a></p>
+</body>
+
+</html>
