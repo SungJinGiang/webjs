@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculator</title>
+    <title>Advanced Calculator</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -67,7 +67,7 @@
         .equal-sign {
             background-color: #f3931e;
             color: white;
-            height: 50px;
+            width: 106px;
             box-shadow: 0 2px #888;
         }
 
@@ -84,11 +84,6 @@
         .wide-button {
             width: 106px;
         }
-
-        .decimal-button {
-            width: 50px;
-            height: 50px;
-        }
     </style>
 </head>
 
@@ -101,15 +96,21 @@
         <div class="calculator-keys">
             <div class="calculator-row">
                 <button class="clear-button" onclick="clearScreen()">MC</button>
-                <button class="operator" onclick="memoryAdd()">M+</button>
-                <button class="operator" onclick="memorySubtract()">M-</button>
-                <button class="operator" onclick="inputKey('*')">x</button>
+                <button class="operator" onclick="memoryPlus()">M+</button>
+                <button class="operator" onclick="memoryMinus()">M-</button>
+                <button class="operator" onclick="recallMemory()">RM</button>
+            </div>
+            <div class="calculator-row">
+                <button class="operator" onclick="square()">x²</button>
+                <button class="operator" onclick="squareRoot()">√x</button>
+                <button class="operator" onclick="toggleSign()">+/-</button>
+                <button class="operator" onclick="inputKey('*')">×</button>
             </div>
             <div class="calculator-row">
                 <button class="number-button" onclick="inputKey('7')">7</button>
                 <button class="number-button" onclick="inputKey('8')">8</button>
                 <button class="number-button" onclick="inputKey('9')">9</button>
-                <button class="operator" onclick="inputKey('-')">-</button>
+                <button class="operator" onclick="inputKey('-')">−</button>
             </div>
             <div class="calculator-row">
                 <button class="number-button" onclick="inputKey('4')">4</button>
@@ -125,75 +126,52 @@
             </div>
             <div class="calculator-row">
                 <button class="wide-button" onclick="inputKey('0')">0</button>
-                <button class="decimal-button" onclick="inputKey('.')">.</button>
-                <button class="operator" onclick="toggleSign()">+/-</button>
                 <button class="equal-sign" onclick="calculate()">=</button>
-            </div>
-            <div class="calculator-row">
-                <button class="operator" onclick="square()">x²</button>
-                <button class="operator" onclick="sqrt()">√</button>
-                <button class="operator" onclick="memoryRecall()">MR</button>
             </div>
         </div>
     </div>
-    <a href="index.html"><button>Trang Chủ</button></a>
-
     <script>
         let memory = 0;
-
-        // Function to display numbers or operations on the screen
         function inputKey(value) {
             document.getElementById('screen').value += value;
         }
-
-        // Function to calculate the result
-        function calculate() {
-            try {
-                document.getElementById('screen').value = eval(document.getElementById('screen').value.replace('×', '*').replace('÷', '/'));
-            } catch (error) {
-                document.getElementById('screen').value = "Error";
-            }
-        }
-
-        // Function to clear the screen
         function clearScreen() {
             document.getElementById('screen').value = "";
         }
-
-        // Function to toggle the sign of the number
         function toggleSign() {
-            let screen = document.getElementById('screen');
-            screen.value = screen.value ? (-1 * parseFloat(screen.value)).toString() : '';
+            let currentValue = document.getElementById('screen').value;
+            if (currentValue) {
+                if (currentValue.charAt(0) === '-') {
+                    document.getElementById('screen').value = currentValue.substring(1);
+                } else {
+                    document.getElementById('screen').value = '-' + currentValue;
+                }
+            }
         }
-
-        // Function for square
         function square() {
-            let screen = document.getElementById('screen');
-            screen.value = Math.pow(parseFloat(screen.value), 2);
+            let currentValue = parseFloat(document.getElementById('screen').value);
+            document.getElementById('screen').value = currentValue * currentValue;
         }
-
-        // Function for square root
-        function sqrt() {
-            let screen = document.getElementById('screen');
-            screen.value = Math.sqrt(parseFloat(screen.value));
+        function squareRoot() {
+            let currentValue = parseFloat(document.getElementById('screen').value);
+            document.getElementById('screen').value = Math.sqrt(currentValue);
         }
-
-        // Memory functions
-        function memoryAdd() {
-            memory += parseFloat(document.getElementById('screen').value);
+        function memoryPlus() {
+            let currentValue = parseFloat(document.getElementById('screen').value);
+            memory += currentValue;
+            clearScreen();
+        }
+        function memoryMinus() {
+            let currentValue = parseFloat(document.getElementById('screen').value);
+            memory -= currentValue;
             clearScreen();
         }
 
-        function memorySubtract() {
-            memory -= parseFloat(document.getElementById('screen').value);
-            clearScreen();
-        }
-
-        function memoryRecall() {
+        function recallMemory() {
             document.getElementById('screen').value = memory;
         }
     </script>
-
+    <script src="calculator.js"></script>
 </body>
 
 </html>
