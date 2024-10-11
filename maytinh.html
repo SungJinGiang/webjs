@@ -101,8 +101,8 @@
         <div class="calculator-keys">
             <div class="calculator-row">
                 <button class="clear-button" onclick="clearScreen()">MC</button>
-                <button class="operator">M+</button>
-                <button class="operator">M-</button>
+                <button class="operator" onclick="memoryAdd()">M+</button>
+                <button class="operator" onclick="memorySubtract()">M-</button>
                 <button class="operator" onclick="inputKey('*')">x</button>
             </div>
             <div class="calculator-row">
@@ -126,16 +126,26 @@
             <div class="calculator-row">
                 <button class="wide-button" onclick="inputKey('0')">0</button>
                 <button class="decimal-button" onclick="inputKey('.')">.</button>
+                <button class="operator" onclick="toggleSign()">+/-</button>
                 <button class="equal-sign" onclick="calculate()">=</button>
+            </div>
+            <div class="calculator-row">
+                <button class="operator" onclick="square()">x²</button>
+                <button class="operator" onclick="sqrt()">√</button>
+                <button class="operator" onclick="memoryRecall()">MR</button>
             </div>
         </div>
     </div>
     <a href="index.html"><button>Trang Chủ</button></a>
+
     <script>
+        let memory = 0;
+
         // Function to display numbers or operations on the screen
         function inputKey(value) {
             document.getElementById('screen').value += value;
         }
+
         // Function to calculate the result
         function calculate() {
             try {
@@ -148,6 +158,39 @@
         // Function to clear the screen
         function clearScreen() {
             document.getElementById('screen').value = "";
+        }
+
+        // Function to toggle the sign of the number
+        function toggleSign() {
+            let screen = document.getElementById('screen');
+            screen.value = screen.value ? (-1 * parseFloat(screen.value)).toString() : '';
+        }
+
+        // Function for square
+        function square() {
+            let screen = document.getElementById('screen');
+            screen.value = Math.pow(parseFloat(screen.value), 2);
+        }
+
+        // Function for square root
+        function sqrt() {
+            let screen = document.getElementById('screen');
+            screen.value = Math.sqrt(parseFloat(screen.value));
+        }
+
+        // Memory functions
+        function memoryAdd() {
+            memory += parseFloat(document.getElementById('screen').value);
+            clearScreen();
+        }
+
+        function memorySubtract() {
+            memory -= parseFloat(document.getElementById('screen').value);
+            clearScreen();
+        }
+
+        function memoryRecall() {
+            document.getElementById('screen').value = memory;
         }
     </script>
 
