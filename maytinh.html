@@ -166,14 +166,20 @@
             memory -= currentValue;
             clearScreen();
         }
-
         function recallMemory() {
             document.getElementById('screen').value = memory;
         }
+        function calculate() {
+            let expression = document.getElementById('screen').value;
+            try {
+                let result = eval(expression);
+                document.getElementById('screen').value = result;
+            } catch (e) {
+                document.getElementById('screen').value = "Error";
+            }
+        }
     </script>
-    <!-- Nút để quay lại trang chủ -->
     <a href="index.html"><button>Trang Chủ</button></a>
-    <script src="calculator.js"></script>
 </body>
 
 </html>
