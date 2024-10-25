@@ -1,8 +1,9 @@
+/* Tổng quan trang */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f9;
+    background-color: #f0f8ff;
     color: #333;
 }
 
@@ -13,17 +14,21 @@ body {
     text-align: center;
 }
 
+/* Tiêu đề chính */
 h1 {
-    font-size: 2.5em;
-    margin-bottom: 10px;
-    color: #2c3e50;
+    font-size: 2.8em;
+    margin-bottom: 15px;
+    color: #0077b6;
 }
 
+/* Phần giới thiệu */
 .intro {
     font-size: 1.2em;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
+    color: #555;
 }
 
+/* Các thành viên trong nhóm */
 .member-container {
     display: flex;
     flex-wrap: wrap;
@@ -31,33 +36,40 @@ h1 {
     justify-content: center;
 }
 
+/* Thẻ thành viên */
 .member {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     max-width: 250px;
     padding: 20px;
     text-align: center;
-    transition: transform 0.3s;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-top: 4px solid #00b4d8;
 }
 
 .member:hover {
     transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
 }
 
+/* Ảnh thành viên */
 .member img {
     width: 100%;
     height: auto;
     border-radius: 50%;
     margin-bottom: 15px;
+    border: 3px solid #0077b6;
 }
 
+/* Tên thành viên */
 .member h2 {
-    font-size: 1.5em;
+    font-size: 1.6em;
     margin: 10px 0;
-    color: #2980b9;
+    color: #023e8a;
 }
 
+/* Mô tả thành viên */
 .member p {
     font-size: 1em;
     color: #666;
