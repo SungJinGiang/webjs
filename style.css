@@ -248,3 +248,51 @@ h1,
 .button-container .btn {
     margin: 0 30px;
 }
+
+.section h2 {
+    border: 2px solid #4CAF50;
+    /* Màu sắc của khung */
+    border-radius: 8px;
+    /* Góc bo tròn */
+    padding: 5px;
+    /* Khoảng cách bên trong */
+    background-color: #f9f9f9;
+    /* Màu nền cho tiêu đề */
+    margin-bottom: 15px;
+    /* Khoảng cách dưới tiêu đề */
+    text-align: center;
+    /* Căn giữa tiêu đề */
+}
+
+.social li {
+    list-style-type: none;
+    /* Loại bỏ dấu chấm trước mỗi mục */
+    display: inline-block;
+    /* Để các mục nằm ngang */
+    margin: 5px;
+    /* Khoảng cách giữa các mục */
+}
+
+.social a {
+    border: 2px solid #4CAF50;
+    /* Màu sắc của khung */
+    border-radius: 5px;
+    /* Bo góc */
+    padding: 5px 10px;
+    /* Khoảng cách bên trong */
+    background-color: #f9f9f9;
+    /* Màu nền */
+    text-decoration: none;
+    /* Loại bỏ gạch chân */
+    color: #4CAF50;
+    /* Màu chữ */
+    transition: background-color 0.3s;
+    /* Hiệu ứng chuyển màu khi hover */
+}
+
+.social a:hover {
+    background-color: #4CAF50;
+    /* Màu nền khi hover */
+    color: #ffffff;
+    /* Màu chữ khi hover */
+}
